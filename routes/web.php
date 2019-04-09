@@ -11,10 +11,15 @@
 |
 */
 
-Route::get('/', 'SitiosController@index');
+Route::get('/', 'SitiosController@index')->name('sitios.index');
+
+Route::get('/principal', function () {
+    return view('principal');
+});
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('planes', 'PlanController');
+Route::resource('actividades', 'ActividadController');
